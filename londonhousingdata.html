@@ -112,7 +112,7 @@
 						 svg.selectAll("path")
 						 	.data(topojson.feature(uk, uk.objects.thenewestdict1).features)
 						 	.on("mouseover", function(d){
-						 		div.html("<b>" + d.properties.Name  + "</b><br>" 
+                               div.html("<b>" + d.properties.Name  + "</b><br><br/>" 
 						 			+ "Population (thousands): " + d.properties.population + "<br>" +
 						 			"Density (Pop/km2): " + d.properties.density)});
     })
@@ -128,10 +128,8 @@
 <hr>
 
 <p>A simple alteration of work done by SJ Whitworth on using D3JS to render UK census data on a map of London.</p>
-
-<p>All of the data, Javascript and HTML is available on my <a href="http://www.github.com/sjwhitworth">Github.</a></p>
-
-Click the buttons below to change the color density mapping, and hover over each borough to see statistics.<p><br>
+<p>
+Click the buttons below to change the color density mapping, and hover over each borough to see statistics.</p><br>
 
 <button class="btn btn-primary btn-small" onclick="update(1)">Population</button> 
 <button class="btn btn-primary btn-small" onclick="update(0)">Density</button>
