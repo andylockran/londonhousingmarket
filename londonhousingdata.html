@@ -51,14 +51,14 @@
 			switch(num){
 				case 0:
 					var color = d3.scale.linear()
-					.domain([150000, 350000])
-			    	.range(["white", "#104E8B"])
+					.domain([0, 350000])
+			    	.range(["white", "#D10074"])
 			    	break;
 
 			    case 1:
 				    var color = d3.scale.linear()
 					.domain([0, 400000])
-			    	.range(["white", "#104E8B"]);
+			    	.range(["white", "#D10074"]);
 			    	break;
 
 			    case 2:
@@ -75,7 +75,7 @@
 
 			            var random = function(d){
 			            		if (num == 0){
-			            			return color(d.properties.avghouseprice);	
+			            			return color(d.properties.density);	
 			            		};
 			            		if (num == 1){
 			            			return color(d.properties.population);
@@ -113,27 +113,27 @@
 						 	.data(topojson.feature(uk, uk.objects.thenewestdict1).features)
 						 	.on("mouseover", function(d){
 						 		div.html("<b>" + d.properties.Name  + "</b><br>" 
-						 			+ "Population: " + d.properties.population + "<br>" +
-						 			"Average house price: £" + d.properties.avghouseprice + "<br>"
-						 			+ "Percent renting from landlord: " + d.properties.percentrent + "<br>"
-						 			+ "New homes built 2011/2012: " + d.properties.numnewhomes + "<br>" + 
-						 			"People per new home built: " + d3.round(d.properties.peoplepernewhome))});
+						 			+ "Population (thousands): " + d.properties.population + "<br>" +
+						 			"Density (Pop/km2): " + d.properties.density)});
     })
 	};
 
-	update(0);
+	update(1);
 	</script>
 </div></div>
 <br>
 
 <div class="span4">
-<h1>Visualising the London housing market in D3.JS</h1>
+<h1>London Population Density</h1>
 <hr>
 
-<p>An introductory lesson into mapping and displaying data with D3, using freely available 2011/2012 Census data. All of the data, Javascript and HTML is available on my <a href="http://www.github.com/sjwhitworth">Github.</a> Please feel free to get at me on Twitter with any questions - my handle is <a href="http://www.twitter.com/sjwhitworth">@sjwhitworth.</a><br><br>
+<p>A simple alteration of work done by SJ Whitworth on using D3JS to render UK census data on a map of London.</p>
+
+<p>All of the data, Javascript and HTML is available on my <a href="http://www.github.com/sjwhitworth">Github.</a></p>
 
 Click the buttons below to change the color density mapping, and hover over each borough to see statistics.<p><br>
 
-<button class="btn btn-primary btn-small" onclick="update(0)">Average House Price</button> <button class="btn btn-primary btn-small" onclick="update(1)">Population</button> <button class="btn btn-primary btn-small" onclick="update(2)">People Per New House</button>
+<button class="btn btn-primary btn-small" onclick="update(1)">Population</button> 
+<button class="btn btn-primary btn-small" onclick="update(0)">Density</button>
 
 <div class="tooltip">
