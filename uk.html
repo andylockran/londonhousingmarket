@@ -71,6 +71,7 @@
     var width = 960,
         height = 650;
 
+    var scalezoom = 600*5;
     var div = d3.select("#stats")
             .attr("class", "tooltip")
             .attr("id", "stats")
@@ -80,7 +81,7 @@
       .center([0, 55.4])
       .rotate([4.4, 0])
       .parallels([50, 60])
-      .scale(600 * 5)
+      .scale(scalezoom)
       .translate([width / 2, height / 2]);
 
     var path = d3.geo.path()
